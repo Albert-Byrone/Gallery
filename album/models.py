@@ -38,9 +38,12 @@ class Image(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
     image = models.ImageField(upload_to='images/')
-    author = models.CharField(max_length=50)
-    location = models.ForeignKey(Location)
-    category = models.ForeignKey(Category)
+
+    @classmethod
+    def get_image_by_id(cls,id):
+        image = Image.objects.filter(id=id).all()
+        return image
+
 
     def save_image(self):
         self.save()
