@@ -29,6 +29,10 @@ class Category(models.Model):
     def save_category(self):
         self.save()
     
+    def delete_category(self):
+        self.delete()
+    
+
 class Image(models.Model):
     name = models.CharField(max_length = 60)
     date = models.DateTimeField(auto_now_add=True)
