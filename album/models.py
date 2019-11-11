@@ -15,8 +15,7 @@ class Location(models.Model):
 
     @classmethod
     def update_location(cls,id,value):
-        cls.objects.filter(id=id).update(image=value)
-
+        cls.objects.filter(id=id).update(name=value)
 
     def __str__(self):
         return self.name
