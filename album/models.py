@@ -38,6 +38,8 @@ class Image(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
     image = models.ImageField(upload_to='images/')
+    location = models.ForeignKey(Location,on_delete=models.CASCADE)
+    category = models.ForeignKey(Category,on_delete=models.CASCADE)
 
     @classmethod
     def get_image_by_id(cls,id):
@@ -53,6 +55,7 @@ class Image(models.Model):
         img_location = Image.objects.filter(location__name=location).all()
         return img_location
 
+    @classmethod
     def search_by_category(cls,category):
         image = cls.objects.filter(category__name__icontains=category)
         return image
