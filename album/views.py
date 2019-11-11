@@ -7,3 +7,7 @@ def home(request):
     images = Image.objects.all()
     locations =Location.get_locations() 
     return render(request,'album/index.html',{"images":images,"locations":locations})
+
+def locate_image(request,location):
+    images = Image.filter_by_location(location)
+    return render(request,'album/location.html',{"located_images":images})
