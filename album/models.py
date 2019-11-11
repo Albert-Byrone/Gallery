@@ -10,9 +10,8 @@ class Location(models.Model):
         self.delete()
 
     @classmethod
-    def get_location(cls):
-        location = Location.objects.all()
-        return location
+    def get_locations(cls):
+        return Location.objects.all()
 
     @classmethod
     def update_location(cls,id,value):
