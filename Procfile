@@ -1,1 +1,1 @@
-web: gunicorn album.wsgi --log-file - 
+web: gunicorn myapp.wsgi --log-file - 
