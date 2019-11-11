@@ -44,6 +44,9 @@ class Image(models.Model):
         image = Image.objects.filter(id=id).all()
         return image
 
+    @classmethod
+    def update_image(cls,id,value):
+        cls.objects.filter(pk=id).update(image=value)
 
     def save_image(self):
         self.save()
