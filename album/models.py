@@ -26,6 +26,9 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    def save_category(self):
+        self.save()
+    
 class Image(models.Model):
     name = models.CharField(max_length = 60)
     date = models.DateTimeField(auto_now_add=True)
