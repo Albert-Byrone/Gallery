@@ -53,6 +53,10 @@ class Image(models.Model):
         img_location = Image.objects.filter(location__name=location).all()
         return img_location
 
+    def search_by_category(cls,category):
+        image = cls.objects.filter(category__name__icontains=category)
+        return image
+
     def save_image(self):
         self.save()
 
