@@ -8,3 +8,5 @@ urlpatterns = [
     url(r'^search/', views.search_results, name='search_results'),
     url(r'^location/(?P<location>\w+)',views.locate_image,name='location'),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
