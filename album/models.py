@@ -48,6 +48,11 @@ class Image(models.Model):
     def update_image(cls,id,value):
         cls.objects.filter(pk=id).update(image=value)
 
+    @classmethod
+    def filter_by_location(cls,location):
+        img_location = Image.objects.filter(location__name=location).all()
+        return img_location
+
     def save_image(self):
         self.save()
 
